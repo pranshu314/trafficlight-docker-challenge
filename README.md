@@ -6,7 +6,7 @@
 # Solution (Task-2)
 <details>
 <summary>Click Me</summary>
-    <br>
+
 - The Dockerfile for the apps red, yellow, green are in their respective directories
 - The Dockerfile for the nginx-proxy image is in the nginx directory
 - ##### To create network 

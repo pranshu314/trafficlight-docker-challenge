@@ -1,6 +1,19 @@
 # :vertical_traffic_light: Traffic Light Docker Challenge
 
 > A set of practice tasks for people who new to Docker
+
+
+# Solution (Task-2)
+- The Dockerfile for the apps red, yellow, green are in their respective directories
+- The Dockerfile for the nginx-proxy image is in the nginx directory
+- ##### To create network 
+- docker network create --subnet=172.20.0.0/16 --gateway=172.20.0.1 traffic-light
+- ##### Docker run commands
+- docker run --rm --network traffic-light --name green-app trafficlight/green:v1.0
+- docker run --rm --network traffic-light --name red-app trafficlight/red:v1.0
+- docker rrn --rm --network traffic-light --name yellow-app trafficlight/yellow:v1.0
+- docker run --rm -p 80:80 -p 3000:3000 -p 4000:4000 -p 5000:5000 --network traffic-light --name nginx-proxy trafficlight/nginx:v1.0
+- - NOTE: Mac users may need to disable the Airplay Receiver as it by default runs on port 5000
 ## About The Project
 In this project are included a set of tasks designed for beginner Programmers, Systems Administrators, DevOps Engineers, etc. who want to learn or get more familiar with Docker.
 
@@ -69,17 +82,6 @@ This project consists of folders appropriately by the color names of a traffic l
 
 If you have done all points of the Task2 correctly, by opening e.g. the link http://127.0.0.1:3000 on your browser, you should see the `red-app` page. The rest web apps should work with the same logic.
 
-# Solution (Task-2)
-- The Dockerfile for the apps red, yellow, green are in their respective directories
-- The Dockerfile for the nginx-proxy image is in the nginx directory
-- ##### To create network 
-- docker network create --subnet=172.20.0.0/16 --gateway=172.20.0.1 traffic-light
-- ##### Docker run commands
-- docker run --rm --network traffic-light --name green-app trafficlight/green:v1.0
-- docker run --rm --network traffic-light --name red-app trafficlight/red:v1.0
-- docker rrn --rm --network traffic-light --name yellow-app trafficlight/yellow:v1.0
-- docker run --rm -p 80:80 -p 3000:3000 -p 4000:4000 -p 5000:5000 --network traffic-light --name nginx-proxy trafficlight/nginx:v1.0
-- - NOTE: Mac users may need to disable the Airplay Receiver as it by default runs on port 5000
 
 ### :three: Task3: Running web apps with Nginx load balancing
 3.1 Run services via Docker Compose with the following requirements by using the web apps' images that you've built:

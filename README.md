@@ -19,6 +19,13 @@
 - - NOTE: Mac users may need to disable the Airplay Receiver as it by default runs on port 5000
 </details>
 
+# Solution (Task-3)
+<details>
+    <summary>Click Me</summary>
+
+    - Run docker-compose up
+</details>
+
 ## About The Project
 In this project are included a set of tasks designed for beginner Programmers, Systems Administrators, DevOps Engineers, etc. who want to learn or get more familiar with Docker.
 

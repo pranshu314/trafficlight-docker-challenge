@@ -1,30 +1,6 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![Medium][medium-shield]][medium-url]
-[![Stackoverflow][stackoverflow-shield]][stackoverflow-url]
-
 # :vertical_traffic_light: Traffic Light Docker Challenge
 
 > A set of practice tasks for people who new to Docker
-
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#project-structure">Project Structure</a></li>
-    <li><a href="#requirements">Requirements</a></li>
-    <li><a href="#what-you-will-learn">What you will learn</a></li>    
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#author-and-maintainer">Author and maintainer</a></li>
-  </ol>
-</details>
-
-
 ## About The Project
 In this project are included a set of tasks designed for beginner Programmers, Systems Administrators, DevOps Engineers, etc. who want to learn or get more familiar with Docker.
 
@@ -56,20 +32,6 @@ This project consists of folders appropriately by the color names of a traffic l
     └── index.pug
 ```   
 
-## Requirements
-- [Docker engine](https://docs.docker.com/engine/install/)
-- [Docker compose](https://docs.docker.com/compose/install/)
-
-## What you will learn
-By completing all the instructions of this project, at the end of it, you will have knowledge of:
-- the basic commands of the Docker
-- networking of the Docker
-- container management with Docker compose
-- data management by using Docker volumes
-- experience with Nginx reverse proxy
-
-## Getting started
-#### Clone [this](https://github.com/hayk96/trafficlight-docker-challenge) repository, then do the required instructions of the tasks.
 
 ### :one: Task1: Writing Dockerfiles and building Docker images
 1.1 Write a Dockerfile for all applications by following the instructions (from 1.1.1 to 1.1.8) presented below. The created sampler of Dockerfile should be the same for all applications.  
@@ -107,6 +69,18 @@ By completing all the instructions of this project, at the end of it, you will h
 
 If you have done all points of the Task2 correctly, by opening e.g. the link http://127.0.0.1:3000 on your browser, you should see the `red-app` page. The rest web apps should work with the same logic.
 
+#### Solution
+- The Dockerfile for the apps red, yellow, green are in their respective directories
+- The Dockerfile for the nginx-proxy image is in the nginx directory
+- ##### To create network 
+- docker network create --subnet=172.20.0.0/16 --gateway=172.20.0.1 traffic-light
+- ##### Docker run commands
+- docker run --rm --network traffic-light --name green-app trafficlight/green:v1.0
+- docker run --rm --network traffic-light --name red-app trafficlight/red:v1.0
+- docker rrn --rm --network traffic-light --name yellow-app trafficlight/yellow:v1.0
+- docker run --rm -p 80:80 -p 3000:3000 -p 4000:4000 -p 5000:5000 --network traffic-light --name nginx-proxy trafficlight/nginx:v1.0
+- - NOTE: Mac users may need to disable the Airplay Receiver as it by default runs on port 5000
+
 ### :three: Task3: Running web apps with Nginx load balancing
 3.1 Run services via Docker Compose with the following requirements by using the web apps' images that you've built:
 - define the following services: `red-app`, `yellow-app`, `green-app` and `nginx-load-balancer` in docker-compose.yml file
@@ -126,26 +100,3 @@ If you have done all points of the Task2 correctly, by opening e.g. the link htt
 
 If you have done all points of the Task3 correctly, by visiting with this link: http://127.0.0.1 first time you will see e.g. the `red-app`, visiting second time (or refreshing the page) you will see e.g. the `yellow-app`, and for the third time you will see the `green-app`.
 
-## License
-Distributed under the MIT License. See `LICENSE` for more information.
-
-<!-- CONTACT -->
-## Author and maintainer
-**Hayk Davtyan | [@hayk96](https://github.com/hayk96)**
-
-[contributors-shield]: https://img.shields.io/github/contributors/hayk96/trafficlight-docker-challenge.svg?style=for-the-badge
-[contributors-url]: https://github.com/hayk96/trafficlight-docker-challenge/contributors
-[forks-shield]: https://img.shields.io/github/forks/hayk96/trafficlight-docker-challenge.svg?style=for-the-badge
-[forks-url]: https://github.com/hayk96/trafficlight-docker-challenge/network/members
-[stars-shield]: https://img.shields.io/github/stars/hayk96/trafficlight-docker-challenge?style=for-the-badge
-[stars-url]: https://github.com/hayk96/trafficlight-docker-challenge/stargazers
-[issues-shield]: https://img.shields.io/github/issues/hayk96/trafficlight-docker-challenge.svg?style=for-the-badge
-[issues-url]: https://github.com/hayk96/trafficlight-docker-challenge/issues
-[license-shield]: https://img.shields.io/github/license/hayk96/trafficlight-docker-challenge.svg?style=for-the-badge
-[license-url]: https://github.com/hayk96/trafficlight-docker-challenge/blob/main/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/hayk96
-[medium-shield]: https://img.shields.io/badge/-Medium-black.svg?style=for-the-badge&logo=medium&colorB=555
-[medium-url]: https://hayk96.medium.com
-[stackoverflow-shield]: https://img.shields.io/badge/-Stackoverflow-black.svg?style=for-the-badge&logo=stackoverflow&colorB=555
-[stackoverflow-url]: https://stackoverflow.com/users/16454242/hayk-davtyan?tab=profile

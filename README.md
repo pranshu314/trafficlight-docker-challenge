@@ -69,7 +69,7 @@ This project consists of folders appropriately by the color names of a traffic l
 
 If you have done all points of the Task2 correctly, by opening e.g. the link http://127.0.0.1:3000 on your browser, you should see the `red-app` page. The rest web apps should work with the same logic.
 
-#### Solution
+# Solution (Task-2)
 - The Dockerfile for the apps red, yellow, green are in their respective directories
 - The Dockerfile for the nginx-proxy image is in the nginx directory
 - ##### To create network 

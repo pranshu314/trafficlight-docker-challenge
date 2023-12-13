@@ -6,6 +6,7 @@
 # Solution (Task-2)
 <details>
 <summary>Click Me</summary>
+    <br>
 - The Dockerfile for the apps red, yellow, green are in their respective directories
 - The Dockerfile for the nginx-proxy image is in the nginx directory
 - ##### To create network 
@@ -17,6 +18,7 @@
 - docker run --rm -p 80:80 -p 3000:3000 -p 4000:4000 -p 5000:5000 --network traffic-light --name nginx-proxy trafficlight/nginx:v1.0
 - - NOTE: Mac users may need to disable the Airplay Receiver as it by default runs on port 5000
 </details>
+
 ## About The Project
 In this project are included a set of tasks designed for beginner Programmers, Systems Administrators, DevOps Engineers, etc. who want to learn or get more familiar with Docker.
 
